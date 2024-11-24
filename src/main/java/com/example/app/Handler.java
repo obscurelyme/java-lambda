@@ -13,8 +13,14 @@ public class Handler implements RequestHandler<ExampleRequest, ExampleResponse> 
     public ExampleResponse handleRequest(ExampleRequest req, Context context) {
         LambdaLogger logger = context.getLogger();
         logger.log("Example of a Lambda function written in Java.");
+    
+        String name = "Java";
 
-        return new ExampleResponse("Hello, " + req.name());
+        if (req.name() != null) {
+            name = req.name();
+        }
+
+        return new ExampleResponse("Hello, " + name);
     }
 
 }
