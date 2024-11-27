@@ -1,0 +1,3 @@
+function:
+  runtime: java21
+  handler: com.example.app.Handler::handleRequest
